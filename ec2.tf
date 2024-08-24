@@ -31,6 +31,11 @@ resource "aws_instance" "bastion" {
   tags                   = merge(var.common_tags, { Name = format("%s Bastion", var.vpc_name), DeviceRoleName = var.bastion_role.name, DeviceRoleColor = var.bastion_role.color })
 }
 
+resource "aws_eip_association" "bastion" {
+  instance_id   = aws_instance.bastion.id
+  allocation_id = aws_eip.bastion.id
+}
+
 # workers
 
 resource "tls_private_key" "worker_private_key" {
