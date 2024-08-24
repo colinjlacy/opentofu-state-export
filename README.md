@@ -18,7 +18,7 @@ Before you can do much with the files in this repo, you'll need:
 
 Since I built this with OpenTofu 1.8.1, I included the `encryption` block in `main.tf`. If you're going to use Terraform to try this out, you'll have to remove that block, as it's incompatible with Terraform for...[reasons](https://developer.hashicorp.com/terraform/language/state/sensitive-data).
 
-## The Infrastructure
+## The Tofu
 
 The `.tf` files in this repo build out:
 
@@ -26,6 +26,14 @@ The `.tf` files in this repo build out:
 - an EC2 instance is deployed in each subnet
 - an Elastic IP so that you can reach the instance in the public subnet
 - an assigned private IP for each of the instances in the private subnets
+
+If you have an AWS account configured via the AWS CLI, you can build out your infrastructure by running:
+
+```sh
+$ tofu init
+$ tofu plan -var-file=vars/development.tfvars -out=plan
+$ tofu apply plan
+```
 
 Once that's done, you can get to the actual point of this repo...
 
