@@ -1,4 +1,4 @@
-# OpenTofu to JSON Export
+# OpenTofu State Export
 
 This repo is a PoC that shows how you can use the `tofu show` or `terraform show` command to export the state of your infrastructure, and insert it into downstream data source.  In this PoC, we're pushing state data into [NetBox](https://netboxlabs.com/docs/netbox/en/stable/) using the [v4 API](https://netboxlabs.com/docs/netbox/en/stable/integrations/rest-api/).
 
